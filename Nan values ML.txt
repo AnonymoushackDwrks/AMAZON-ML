@@ -1,0 +1,18 @@
+1. Missing / Empty Values Breakdown
+A. Source 1 Files (train_source1.tsv & test_source1.tsv)
+entity_id: 0% missing
+business_name: 0% missing
+business_address: 0% missing
+country: 0% missing
+👉 Source 1 is the clean reference dataset; none of its core fields are empty.
+B. Secondary Source Files (Source 2 & Source 3)
+business_address has missing values:
+train_source2.tsv: 168,967 rows (~3.36%) have empty / missing addresses.
+train_source3.tsv: 175,916 rows (~3.33%) have empty / missing addresses.
+test_source2.tsv: 129,408 rows (~2.65%) have empty / missing addresses.
+test_source3.tsv: 136,098 rows (~2.68%) have empty / missing addresses.
+business_name: Almost 100% complete (only 1 row in train and 1 in test is blank).
+country & entity_id: 100% complete (0 missing).
+C. Ground Truth (train_ground_truth.tsv)
+matched_entity_ids: 123,247 rows (~5.58%) are empty.
+👉 This is expected by design: An empty matched_entity_ids means the Source 1 entity is a singleton (it has no matching records in Source 2 or Source 3).
